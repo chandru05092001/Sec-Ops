@@ -21,8 +21,8 @@ jobs:
 
     - name: Build Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx:${{ github.sha }} .
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx:v1 .
 
     - name: Push Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/nginx:${{ github.sha }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/nginx:v1
