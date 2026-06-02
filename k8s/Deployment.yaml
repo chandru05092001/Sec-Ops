@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: secops-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: secops-app
+
+  template:
+    metadata:
+      labels:
+        app: secops-app
+
+    spec:
+      containers:
+      - name: secops-app
+        image: <your-dockerhub-username>/secops-app:v1
+        ports:
+        - containerPort: 80
