@@ -39,12 +39,14 @@ jobs:
         aws eks update-kubeconfig \
           --region ${{ secrets.AWS_REGION }} \
           --name ${{ secrets.EKS_CLUSTER_NAME }}
+          
+    - name: Deploy manifests
+      run: |
+       kubectl apply -f k8s/
 
     - name: Deploy to EKS
       run: |
         kubectl set image deployment/secops-app \
         secops-app=${{ secrets.DOCKER_USERNAME }}/nginx:${{ github.sha }}
     
-    - name: Deploy manifests
-      run: |
-       kubectl apply -f k8s/
+    
