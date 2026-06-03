@@ -44,3 +44,7 @@ jobs:
       run: |
         kubectl set image deployment/secops-app \
         secops-app=${{ secrets.DOCKER_USERNAME }}/nginx:${{ github.sha }}
+    
+    - name: Deploy manifests
+      run: |
+       kubectl apply -f k8s/
