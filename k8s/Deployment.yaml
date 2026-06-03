@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: secops-app
-        image: <your-dockerhub-username>/secops-app:v1
+        image: chandru0509/nginx:v1
         ports:
         - containerPort: 80
